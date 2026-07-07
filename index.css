@@ -1,0 +1,634 @@
+/* ══════════════════════════════════════════
+   index.css — SNI Hôtel / Page d'accueil
+   Les polices Google Fonts sont chargées
+   directement via <link> dans index.php
+══════════════════════════════════════════ */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --violet:       #7C3B9A;
+    --violet-dark:  #5e2c75;
+    --violet-light: rgba(124, 59, 154, 0.12);
+    --text-dark:    #1a1a2e;
+    --text-muted:   #6b7280;
+}
+
+body {
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    color: var(--text-dark);
+    background: #f8f6fb;
+}
+
+/* ════════════════════════════════
+   NAVBAR
+════════════════════════════════ */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    height: 68px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.navbar .logo {
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--violet);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar .nav-links a {
+    color: #444;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--violet);
+}
+
+/* Bouton connexion — identique au style original */
+.navbar .nav-links a.btn-connect {
+    background: var(--violet);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.navbar .nav-links a.btn-connect:hover {
+    background: var(--violet-dark);
+    color: #fff;
+}
+
+/* ════════════════════════════════
+   Accueil — plein écran avec photo
+════════════════════════════════ */
+.principal {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* overlay sombre + image de fond */
+    background-image:
+        linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.58) 100%),
+        url("accueil.png");
+    background-size: cover;
+    background-position: center;
+    /* padding-top = hauteur navbar pour ne pas être caché dessous */
+    padding: 2px 24px 40px;
+    text-align: center;
+}
+
+/* ── 0. Formulaire principal centré ── */
+#filterForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* ── 1. Barre de recherche (en haut) ── */
+.search-bar-wrapper {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto 20px auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 50px;
+    padding: 13px 22px;
+    gap: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.28);
+}
+
+.search-bar svg {
+    flex-shrink: 0;
+    color: #999;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    width: 100%;
+}
+
+.search-bar input::placeholder {
+    color: #bbb;
+}
+
+/* ── 2. Titre (au centre) ── */
+.principal-title {
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.32;
+    max-width: 760px;
+    margin-bottom: 52px;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.50);
+}
+
+/* ── 3. Filtres + bouton Rechercher (en bas) ── */
+.filters-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: rgba(255, 255, 255, 0.93);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23555' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 46px 14px 24px;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    min-width: 158px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    transition: box-shadow 0.2s;
+}
+
+.filter-select:hover {
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.26);
+}
+
+.filter-select:focus {
+    outline: 2px solid var(--violet);
+    outline-offset: 2px;
+}
+
+.btn-rechercher {
+    background: var(--violet);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 44px;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 22px rgba(124, 59, 154, 0.52);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.btn-rechercher:hover {
+    background: var(--violet-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(124, 59, 154, 0.62);
+}
+
+.btn-rechercher:active {
+    transform: translateY(0);
+}
+
+/* ════════════════════════════════
+   SECTION UTILISATEURS
+════════════════════════════════ */
+.section-table {
+    padding: 80px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 6px;
+}
+
+.section-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.badge-count {
+    background: var(--violet-light);
+    color: var(--violet);
+    border: 1px solid rgba(124, 59, 154, 0.2);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.link-table {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--violet);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: gap 0.2s;
+}
+
+.link-table:hover {
+    gap: 12px;
+}
+
+/* ── Grille de cartes ── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.user-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0eaf5;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(124, 59, 154, 0.13);
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.card-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--violet), #c77dff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    color: #fff;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.card-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.card-email {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.role-pill {
+    display: inline-block;
+    padding: 4px 13px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.role-admin  { background: #f3e8ff; color: #6b21a8; }
+.role-client { background: #e0f2fe; color: #0369a1; }
+.role-h-tel,
+[class^="role-h"] { background: #fef3c7; color: #92400e; }
+
+.card-id {
+    font-size: 0.78rem;
+    color: #ccc;
+    font-weight: 500;
+}
+
+/* ── État vide ── */
+.empty-state {
+    text-align: center;
+    padding: 64px 20px;
+    color: var(--text-muted);
+}
+
+.empty-state svg {
+    margin-bottom: 18px;
+    opacity: 0.35;
+}
+
+.empty-state p {
+    font-size: 1rem;
+}
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+footer {
+    text-align: center;
+    padding: 28px;
+    font-size: 0.85rem;
+    color: #bbb;
+    border-top: 1px solid #f0eaf5;
+}
+
+/* ════════════════════════════════
+   ANIMATIONS D'ENTRÉE
+════════════════════════════════ */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.search-bar-wrapper { animation: fadeUp 0.6s 0.10s ease both; }
+.principal-title         { animation: fadeUp 0.6s 0.25s ease both; }
+.filters-row        { animation: fadeUp 0.6s 0.40s ease both; }
+
+/* ════════════════════════════════
+   RESPONSIVE MOBILE
+════════════════════════════════ */
+@media (max-width: 640px) {
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .principal-title {
+        font-size: 1.7rem;
+    }
+
+    .filters-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-select {
+        min-width: 100%;
+    }
+
+    .btn-rechercher {
+        width: 100%;
+    }
+
+    .section-table {
+        padding: 48px 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* ════════════════════════════════
+   CALENDRIER DOUBLE — DATE PICKER
+════════════════════════════════ */
+.date-picker-wrapper {
+    position: relative;
+}
+
+.date-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+.date-trigger span { flex: 1; }
+
+.calendar-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 16px 56px rgba(124,59,154,0.22), 0 2px 12px rgba(0,0,0,0.10);
+    padding: 24px 20px 18px;
+    z-index: 300;
+    min-width: 580px;
+    animation: calIn 0.18s ease;
+}
+.calendar-dropdown.open { display: block; }
+
+@keyframes calIn {
+    from { opacity:0; transform: translateX(-50%) translateY(-8px); }
+    to   { opacity:1; transform: translateX(-50%) translateY(0); }
+}
+
+.cal-nav-bar {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.cal-nav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--violet);
+    line-height: 1;
+    padding: 0 6px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: background 0.15s;
+}
+.cal-nav:hover { background: var(--violet-light); }
+
+.cal-months-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.cal-month-panel { padding: 0 12px; }
+.cal-month-panel + .cal-month-panel { border-left: 1px solid #f0eaf5; }
+
+.cal-month-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+}
+
+.cal-grid-head {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 4px;
+}
+.cal-grid-head span {
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 4px 0;
+}
+
+.cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.cal-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background 0.12s, color 0.12s;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+.cal-day--empty,
+.cal-day--disabled {
+    cursor: default;
+    color: #ccc;
+    background: transparent !important;
+}
+
+.cal-day:not(.cal-day--empty):not(.cal-day--disabled):not(.cal-day--start):not(.cal-day--end):hover {
+    background: var(--violet-light);
+    color: var(--violet);
+    border-radius: 50%;
+}
+
+.cal-day--range {
+    background: var(--violet-light);
+    color: var(--violet);
+    border-radius: 0;
+}
+
+.cal-day--start,
+.cal-day--end {
+    background: var(--violet) !important;
+    color: #fff !important;
+    font-weight: 700;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.cal-day--start.cal-day--range { border-radius: 50% 0 0 50%; }
+.cal-day--end.cal-day--range   { border-radius: 0 50% 50% 0; }
+.cal-day--single               { border-radius: 50% !important; }
+
+.cal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #f0eaf5;
+    gap: 12px;
+}
+
+#calSelection {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    flex: 1;
+    text-align: center;
+}
+#calSelection strong { color: var(--violet); font-weight: 600; }
+
+.cal-reset {
+    background: none;
+    border: 1px solid #e0d5ea;
+    border-radius: 8px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    color: var(--violet);
+    cursor: pointer;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+.cal-reset:hover { background: var(--violet-light); }
+
+@media (max-width: 700px) {
+    .calendar-dropdown {
+        min-width: calc(100vw - 32px);
+        left: 16px;
+        transform: none;
+    }
+    .cal-months-container { grid-template-columns: 1fr; }
+    .cal-month-panel + .cal-month-panel {
+        border-left: none;
+        border-top: 1px solid #f0eaf5;
+        margin-top: 14px;
+        padding-top: 14px;
+    }
+}

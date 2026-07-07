@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0033, #7C3B9A);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+/* ──────────────────────────────────────────
+   Conteneur principal
+────────────────────────────────────────── */
+.inscription-container {
+  background: #fff;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.inscription-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222;
+  font-size: 22px;
+}
+
+/* ──────────────────────────────────────────
+   Sections (blocs titrés)
+────────────────────────────────────────── */
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #7C3B9A;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid #7C3B9A;
+  padding-bottom: 6px;
+  margin-bottom: 18px;
+}
+
+/* ──────────────────────────────────────────
+   Grille de champs (1 ou 2 colonnes)
+────────────────────────────────────────── */
+.form-row {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-row.cols-1 { grid-template-columns: 1fr; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+@media (max-width: 580px) {
+  .form-row.cols-2,
+  .form-row.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ──────────────────────────────────────────
+   Groupes de champs
+────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group label .required {
+  color: #7C3B9A;
+  margin-left: 2px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  background: #fafafa;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237C3B9A' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #7C3B9A;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124, 59, 154, 0.15);
+}
+
+/* ──────────────────────────────────────────
+   Checkboxes (équipements / filtres)
+────────────────────────────────────────── */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 4px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #7C3B9A;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ──────────────────────────────────────────
+   Upload photo
+────────────────────────────────────────── */
+.upload-area {
+  border: 2px dashed #c9a8e0;
+  border-radius: 10px;
+  padding: 24px 16px;
+  text-align: center;
+  background: #f9f3ff;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.2s;
+}
+
+.upload-area:hover {
+  border-color: #7C3B9A;
+  background: #f3e8ff;
+}
+
+.upload-area .upload-icon {
+  font-size: 28px;
+  color: #b07ed4;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.upload-area p {
+  font-size: 13px;
+  color: #888;
+}
+
+.upload-area input[type="file"] {
+  display: none;
+}
+
+/* ──────────────────────────────────────────
+   Bouton de soumission
+────────────────────────────────────────── */
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background: #7C3B9A;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+  margin-top: 10px;
+  letter-spacing: 0.03em;
+}
+
+.submit-btn:hover {
+  background: #5a2a72;
+}
+
+.submit-btn:active {
+  transform: scale(0.99);
+}
+
+/* ──────────────────────────────────────────
+   Messages d'erreur / succès
+────────────────────────────────────────── */
+.error-msg {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: #fdecea;
+  border: 1px solid #f44336;
+  border-radius: 8px;
+  color: #c62828;
+  font-size: 13px;
+}
+
+.success-msg {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: #e8f5e9;
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+  color: #2e7d32;
+  font-size: 13px;
+}
+
+/* ──────────────────────────────────────────
+   Focus visible (accessibilité)
+────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #7C3B9A;
+  outline-offset: 2px;
+}

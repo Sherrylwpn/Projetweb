@@ -1,0 +1,243 @@
+/* ══ SECTION HÔTELS ══════════════════════════════════════════ */
+.hotels-section {
+    max-width: 1100px;
+    margin: 60px auto 80px;
+    padding: 0 24px;
+}
+
+.hotels-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.hotels-section-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 36px;
+}
+
+/* ══ GRILLE ═════════════════════════════════════════════════ */
+.hotels-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ══ CARTE HÔTEL ════════════════════════════════════════════ */
+.hotel-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border: 1px solid #ece8f0;
+    transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.hotel-card:hover {
+    box-shadow: 0 8px 32px rgba(124,59,154,0.13);
+    transform: translateY(-3px);
+}
+
+/* ── Photo ── */
+.hotel-photo {
+    position: relative;
+    overflow: hidden;
+    background: #e8e0f0;
+    min-height: 220px;
+}
+
+.hotel-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.hotel-card:hover .hotel-photo img {
+    transform: scale(1.05);
+}
+
+.hotel-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b39dca;
+    font-size: 0.85rem;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.hotel-photo-placeholder svg {
+    opacity: 0.4;
+}
+
+.province-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(124,59,154,0.88);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.3px;
+}
+
+/* ── Corps ── */
+.hotel-body {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hotel-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.hotel-adresse {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: #6b7280;
+}
+
+.hotel-adresse svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #7C3B9A;
+}
+
+.hotel-proximite {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #7C3B9A;
+    font-weight: 500;
+    background: #f3eaf8;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+/* ── Équipements ── */
+.hotel-equipements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.equip-tag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    background: #f8f5fc;
+    border: 1px solid #e8dff0;
+    color: #4a2060;
+    padding: 4px 11px;
+    border-radius: 20px;
+    font-weight: 400;
+}
+
+/* ── Activités ── */
+.hotel-activites {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem;
+    color: #555;
+    line-height: 1.5;
+    border-left: 3px solid #d8bfea;
+    padding-left: 10px;
+    margin-top: 2px;
+}
+
+/* ── Footer carte ── */
+.hotel-card-footer {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid #f0eaf6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hotel-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.hotel-contact a,
+.hotel-contact span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    color: #6b7280;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hotel-contact a:hover { color: #7C3B9A; }
+
+.btn-voir-tarif {
+    background: #7C3B9A;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 9px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.btn-voir-tarif:hover { background: #5e2b77; }
+
+/* ══ ÉTAT VIDE ══════════════════════════════════════════════ */
+.hotels-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #9ca3af;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.hotels-empty svg { margin-bottom: 14px; opacity: 0.4; }
+.hotels-empty p   { font-size: 1rem; }
+
+/* ══ RESPONSIVE ═════════════════════════════════════════════ */
+@media (max-width: 720px) {
+    .hotel-card {
+        grid-template-columns: 1fr;
+    }
+    .hotel-photo {
+        min-height: 200px;
+    }
+}

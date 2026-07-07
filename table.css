@@ -1,0 +1,213 @@
+/* ══════════════════════════════════════════
+   table.css — Gestion des utilisateurs
+══════════════════════════════════════════ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1a0033, #7C3B9A);
+    min-height: 100vh;
+    padding: 30px 20px;
+    color: #fff;
+}
+
+/* ── PAGE ── */
+.page-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.page-header h1 {
+    font-size: 1.7rem;
+}
+
+/* ── ALERTES ── */
+.alert {
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+}
+.alert-success {
+    background: #d4edda;
+    border: 1px solid #28a745;
+    color: #155724;
+}
+.alert-error {
+    background: #fdecea;
+    border: 1px solid #f44336;
+    color: #c62828;
+}
+
+/* ── CARDS ── */
+.form-card,
+.table-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.form-card h2,
+.table-header h2 {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    color: #f0d9ff;
+}
+
+/* ── FORMULAIRE ── */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+@media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.form-group label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+}
+.optional {
+    font-style: italic;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+}
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input::placeholder { color: rgba(255,255,255,0.4); }
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #c77dff;
+    box-shadow: 0 0 0 3px rgba(199,125,255,0.25);
+}
+.form-group select option { background: #3a1060; color: #fff; }
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ── BOUTONS ── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: opacity 0.2s, transform 0.1s;
+    white-space: nowrap;
+}
+.btn:hover { opacity: 0.85; }
+.btn:active { transform: scale(0.97); }
+
+.btn-primary { background: #7C3B9A; color: #fff; }
+.btn-cancel  { background: rgba(255,255,255,0.15); color: #fff; }
+.btn-back    { background: rgba(255,255,255,0.15); color: #fff; }
+.btn-edit    { background: #4b4b4b; color: #fff; }
+.btn-delete  { background: #4b4b4b; color: #fff; }
+
+/* ── TABLEAU ── */
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.count-badge {
+    background: #7C3B9A;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.table-responsive { overflow-x: auto; }
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 680px;
+}
+.users-table th {
+    background: rgba(124,59,154,0.6);
+    color: #f0d9ff;
+    padding: 11px 14px;
+    text-align: left;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.users-table td {
+    padding: 11px 14px;
+    color: #f0f0f0;
+    font-size: 0.92rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    vertical-align: middle;
+}
+.users-table tr:last-child td { border-bottom: none; }
+.users-table tr:hover td      { background: rgba(124,59,154,0.18); }
+.row-editing td               { background: rgba(199,125,255,0.12); }
+
+/* ── BADGES RÔLE ── */
+.role-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.role-admin  { color: #fff; }
+.role-client { color: #fff; }
+.role-h-tel,
+[class*="role-h"] { color: #fff; }
+
+/* ── ACTIONS CELLULE ── */
+.actions-cell {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.actions-cell form { margin: 0; }
+
+.no-data {
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    padding: 20px 0;
+    text-align: center;
+}
